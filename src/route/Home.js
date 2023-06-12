@@ -12,6 +12,35 @@ function Home() {
     setLoading(false);
   };
 
+  // const getMovies = async () => {
+  //   // const response = await fetch(url);
+  //   // const json = await response.json();
+  //   setMoives(
+  //     (await (await fetch(`https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year`)).json()).data.movies
+  //   );
+  //   setLoading(false);
+  // };
+
+  // const getMovies = () => {
+  //   return new Promise((resolve, reject) => {
+  //     fetch(`https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year`)
+  //       .then((res) => {
+  //         if (!res.ok) {
+  //           throw new Error(`http error: ${res.status}`);
+  //         }
+  //         return res.json();
+  //       })
+  //       .then(resolve)
+  //       .catch((err) => reject);
+  //   });
+  // };
+
+  // useEffect(() => {
+  //   getMovies()
+  //     .then((data) => setMoives(data.data.movies))
+  //     .then(setLoading(false));
+  // }, []);
+
   useEffect(() => {
     getMovies();
   }, []);
