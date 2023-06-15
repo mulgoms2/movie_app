@@ -5,6 +5,9 @@ import styled from "styled-components";
 const Div = styled.div`
   color: grey;
 `;
+const Ul = styled.ul`
+  list-style-type: none;
+`;
 
 function MovieList({ info }) {
   const title = info.title;
@@ -21,13 +24,13 @@ function MovieList({ info }) {
           {title}
         </Link>
       </h2>
-      <p>{summary}</p>
+      <p>{summary.length > 250 ? `${summary.slice(0, 250)}` : summary}</p>
       {genres ? (
-        <ul>
+        <Ul>
           {genres.map((genres) => (
             <li key={genres}>{genres}</li>
           ))}
-        </ul>
+        </Ul>
       ) : null}
     </Div>
   );
