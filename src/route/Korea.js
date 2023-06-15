@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import MovieList from "../components/MovieList";
 function Korea() {
   const [movie, setMovie] = useState([]);
 
@@ -18,9 +18,7 @@ function Korea() {
 
   return (
     <div>
-      {movie.map((movie) => (
-        <h3>{movie.movieNm}</h3>
-      ))}
+      <MovieList info={movie} />
     </div>
   );
 }

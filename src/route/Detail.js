@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import MovieDetails from "../components/MovieDetails";
+import MovieList from "../components/MovieList";
 
 function Detail() {
   const { id } = useParams();
@@ -17,7 +17,7 @@ function Detail() {
     getMovie();
   }, [getMovie]);
 
-  return <div>{load ? "loading..." : <MovieDetails info={movie} />}</div>;
+  return <div>{load ? "loading..." : <MovieList info={movie} />}</div>;
 }
 
 export default Detail;

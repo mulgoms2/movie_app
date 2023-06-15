@@ -1,6 +1,12 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import MovieList from "../components/MovieList";
+import styled from "styled-components";
+
+const Div = styled.div`
+  display: flex;
+  background-color: FAF0E4;
+`;
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -46,12 +52,12 @@ function Home() {
   }, []);
 
   return (
-    <div>
+    <Div>
       {loading ? <h1>Lodaing...</h1> : null}
       {movies.map((info) => (
         <MovieList key={info.id} info={info} />
       ))}
-    </div>
+    </Div>
   );
 }
 export default Home;

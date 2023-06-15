@@ -1,5 +1,10 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+
+const Div = styled.div`
+  color: grey;
+`;
 
 function MovieList({ info }) {
   const title = info.title;
@@ -9,20 +14,25 @@ function MovieList({ info }) {
   const genres = info.genres;
 
   return (
-    <div>
+    <Div>
       <img src={coverImg} alt="movie" />
       <h2>
-        <Link to={`/detail/${id}`}>{title}</Link>
+        <Link to={`/detail/${id}`} style={{ textDecoration: "none" }}>
+          {title}
+        </Link>
       </h2>
       <p>{summary}</p>
-      <ul>
-        {genres.map((genres) => (
-          <li key={genres}>{genres}</li>
-        ))}
-      </ul>
-    </div>
+      {genres ? (
+        <ul>
+          {genres.map((genres) => (
+            <li key={genres}>{genres}</li>
+          ))}
+        </ul>
+      ) : null}
+    </Div>
   );
 }
+
 MovieList.propTypes = {
   info: PropTypes.object.isRequired,
 };
